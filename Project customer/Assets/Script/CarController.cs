@@ -28,6 +28,8 @@ public class CarController : MonoBehaviour
     [SerializeField] private Transform rearLeftWheelTransform;
     [SerializeField] private Transform rearRightWheelTransform;
 
+    [SerializeField] private Transform steeringWheel;
+
     private void FixedUpdate()
     {
         GetInput();
@@ -69,6 +71,10 @@ public class CarController : MonoBehaviour
         currentSteerAngle = maxSteerAngle * horizontalInput;
         frontLeftWheelCollider.steerAngle = currentSteerAngle;
         frontRightWheelCollider.steerAngle = currentSteerAngle;
+
+        //match steering wheel model to input
+        steeringWheel.eulerAngles = new Vector3(steeringWheel.eulerAngles.x,
+        steeringWheel.eulerAngles.y, -currentSteerAngle);
     }
 
     private void UpdateWheels()
