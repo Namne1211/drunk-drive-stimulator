@@ -26,6 +26,9 @@ public class drunkCC : MonoBehaviour
     [SerializeField] private float breakForce;
     [SerializeField] private float maxSteerAngle;
 
+    [SerializeField] private float steerResetSpeed = 0.03f;
+    [SerializeField] private float drunkSteerOffSpeed = 0.05f;
+
     [SerializeField] private WheelCollider frontLeftWheelCollider;
     [SerializeField] private WheelCollider frontRightWheelCollider;
     [SerializeField] private WheelCollider rearLeftWheelCollider;
@@ -108,9 +111,9 @@ public class drunkCC : MonoBehaviour
             }
             
             if (left)
-                angle -= 0.05f;
+                angle -= drunkSteerOffSpeed;
             else
-                angle += 0.05f; 
+                angle += drunkSteerOffSpeed; 
         }
         else
         {
@@ -118,17 +121,17 @@ public class drunkCC : MonoBehaviour
         }
 
         //if no steering wheel moves towards neutral position
-        if ( angle < 0.03 && angle > -0.03 )
+        if ( angle < steerResetSpeed && angle > -steerResetSpeed )
         {
             angle = 0;
         }
         else if (horizontalInput == 0 && angle > 0 )
         {
-            angle -= 0.03f;
+            angle -= steerResetSpeed;
         }
         else if (horizontalInput == 0 && angle < 0)
         {
-            angle += 0.03f;
+            angle += steerResetSpeed;
         }
 
         //make sure drunk turning cant exceed maximum
