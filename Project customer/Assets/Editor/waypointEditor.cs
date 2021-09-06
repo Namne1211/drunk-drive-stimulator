@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 
 [InitializeOnLoad()]
+//drawing gizmo onload
 public class waypointEditor
 {
     [DrawGizmo(GizmoType.NonSelected | GizmoType.Selected|GizmoType.Pickable)]
@@ -34,6 +35,17 @@ public class waypointEditor
             Gizmos.color = Color.green;
 
             Gizmos.DrawLine(waypoint.transform.position, waypoint.nextWayPoint.transform.position);
+        }
+
+        if (waypoint.branches != null)
+        {
+            foreach(WayPoint branch in waypoint.branches)
+            {
+                Gizmos.color = Color.blue;
+
+                Gizmos.DrawLine(waypoint.transform.position, branch.transform.position);
+            }
+            
         }
     }
 }

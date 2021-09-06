@@ -24,7 +24,28 @@ public class WaypointNav : MonoBehaviour
     {
         if (car.reachedDestination)
         {
-            currentWaypoint = currentWaypoint.nextWayPoint;
+            bool shouldBranch = false;
+            //check random if should branch or not
+            if(currentWaypoint.branches != null && currentWaypoint.branches.Count > 0)
+            {
+                shouldBranch = Random.Range(0f, 1f)<=currentWaypoint.branchRatio ? true :false;
+            }
+            //if branches go
+            if (shouldBranch)
+            {
+                currentWaypoint = currentWaypoint.branches[(Random.Range(0, currentWaypoint.branches.Count - 1))];
+            }else {
+                //check if there is a way or not
+                if(currentWaypoint.nextWayPoint != null)
+                {
+                    currentWaypoint = currentWaypoint.nextWayPoint;
+                }
+                else
+                {
+                    currentWaypoint = currentWaypoint.prevWayPoint;
+                }
+            }
+            
             car.SetDestination(currentWaypoint.GetPostion());
         }
     }
