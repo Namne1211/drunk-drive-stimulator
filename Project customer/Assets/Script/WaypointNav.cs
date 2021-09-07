@@ -39,14 +39,16 @@ public class WaypointNav : MonoBehaviour
                 if(currentWaypoint.nextWayPoint != null)
                 {
                     currentWaypoint = currentWaypoint.nextWayPoint;
+                    car.SetDestination(currentWaypoint.GetPostion());
                 }
                 else
                 {
                     currentWaypoint = currentWaypoint.prevWayPoint;
+                    car.SetDestination(currentWaypoint.GetPostion());
                 }
             }
             
-            car.SetDestination(currentWaypoint.GetPostion());
+            
         }
     }
 }
