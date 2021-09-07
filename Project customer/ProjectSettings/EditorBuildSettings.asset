@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 77609f2ae4d354d4b923e7a266f1c125
+  - enabled: 1
     path: Assets/Scenes/basic driving test 1.unity
     guid: 88cf6ea57ee0daa48bdf1a48e3808641
   - enabled: 1
     path: Assets/Scenes/drunk drive.unity
     guid: 18e3594a5e30a5b49a9788e43358d4c5
+  - enabled: 1
+    path: Assets/Scenes/endScreen.unity
+    guid: d52554e8058323d4a90bf70d33bb120c
   m_configObjects: {}

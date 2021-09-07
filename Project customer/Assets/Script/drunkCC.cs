@@ -40,7 +40,12 @@ public class drunkCC : MonoBehaviour
     [SerializeField] private Transform rearRightWheelTransform;
 
     [SerializeField] private Transform steeringWheel;
-
+    [SerializeField] private Transform dashBoard;
+    private Rigidbody rb;
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
     private void FixedUpdate()
     {
         GetInput();
@@ -48,6 +53,7 @@ public class drunkCC : MonoBehaviour
         HandleSteering();
         UpdateWheels();
         GetDrunkEffectStatus();
+        UpdateDashboard();
     }
 
 
@@ -57,7 +63,11 @@ public class drunkCC : MonoBehaviour
         verticalInput = Input.GetAxis(VERTICAL);
         isBreaking = Input.GetKey(KeyCode.Space);
     }
-
+    private void UpdateDashboard()
+    {
+        dashBoard.eulerAngles = new Vector3(dashBoard.eulerAngles.x,
+        dashBoard.eulerAngles.y, 80 - (rb.velocity.magnitude * 5));
+    }
     private void HandleMotor()
     {
         var third = false;
