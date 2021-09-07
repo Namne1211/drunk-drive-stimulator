@@ -9,6 +9,8 @@ public class PlayBarCutscene : MonoBehaviour
     public int stopTime;
     float videoStartTime;
     bool collided;
+    public Camera carCamera;
+    public Camera videoCamera;
 
 
     void Start()
@@ -20,7 +22,7 @@ public class PlayBarCutscene : MonoBehaviour
     {
         if (collided && Time.time - videoStartTime >= stopTime)
         {
-            SceneManager.LoadScene("drunk drive");
+            SceneManager.LoadScene("driveHome");
         }
     }
 
@@ -28,8 +30,11 @@ public class PlayBarCutscene : MonoBehaviour
     {
         if(player.gameObject.tag == "PlayerCar")
         {
-            //idsable player so no more interactions are possible and play cutscene video 
+            //idsable player so no more interactions are possible, swithc camera, and play cutscene video 
             player.enabled = false;
+            videoCamera.gameObject.SetActive(true);
+            carCamera.gameObject.SetActive(false);
+            
             videoPlayer.SetActive(true);
             //stop video after provided time and load next scene
             Destroy(videoPlayer, stopTime);

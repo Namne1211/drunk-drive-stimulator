@@ -240,6 +240,7 @@ GameObject:
   - component: {fileID: 5802684171265564440}
   - component: {fileID: 5802684171265564442}
   - component: {fileID: 1197706328482793481}
+  - component: {fileID: 3361375244444201105}
   m_Layer: 0
   m_Name: AIcar
   m_TagString: Untagged
@@ -306,6 +307,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.0123367, y: 1.2589319, z: 4.454}
   m_Center: {x: 0.014348984, y: 0.68973863, z: 0.019433737}
+--- !u!114 &3361375244444201105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5801059462868721636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54180d973e497fc44bab5f5b3c20cd18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoPlayer: {fileID: 0}
+  stopTime: 7
 --- !u!1 &7148850926999915331
 GameObject:
   m_ObjectHideFlags: 0

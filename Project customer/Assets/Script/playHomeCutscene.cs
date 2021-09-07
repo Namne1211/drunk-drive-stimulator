@@ -8,6 +8,9 @@ public class playHomeCutscene : MonoBehaviour
     // Start is called before the first frame update
     public GameObject videoPlayer;
     public int stopTime;
+    public Camera carCamera;
+    public Camera videoCamera;
+
     float videoStartTime;
     bool collided;
 
@@ -31,6 +34,8 @@ public class playHomeCutscene : MonoBehaviour
         {
             //idsable player so no more interactions are possible and play cutscene video 
             player.enabled = false;
+            videoCamera.gameObject.SetActive(true);
+            carCamera.gameObject.SetActive(false);
             videoPlayer.SetActive(true);
             //stop video after provided time and load next scene
             Destroy(videoPlayer, stopTime);
