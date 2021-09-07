@@ -60,33 +60,40 @@ public class drunkCC : MonoBehaviour
 
     private void HandleMotor()
     {
-        var fourth = true;
+        var third = false;
         //apply drunk effect to motor for 5 seconds then the next 5 seconds to steering
         if (ApplyDrunkEffect)
         {
             //calculate 1/4 chance for breaking and accelerating to work
-            if (rando.Next(4) == 0)
+            if (rando.Next(3) == 0)
             {
-                fourth = true;
+                third = true;
             }
-            else
-                fourth = false;
-        }
-        if (fourth == true)
-        {
-            //adding force to the two front wheels 
-            rearLeftWheelCollider.motorTorque = verticalInput * motorForce;
-            rearRightWheelCollider.motorTorque = verticalInput * motorForce;
-            //cheking if the breaking or not, if not break force equal 0
-            currentbreakForce = isBreaking ? breakForce : 0f;
-            ApplyBreaking();
-        }
-        else{
-            rearLeftWheelCollider.motorTorque =  0;
-            rearRightWheelCollider.motorTorque =  0;
-            currentbreakForce = 0f;
 
         }
+        if (third == true)
+        {
+            if (rando.Next(2) == 1)
+            {
+                rearLeftWheelCollider.motorTorque = motorForce;
+                rearRightWheelCollider.motorTorque = motorForce;
+            }
+            else
+            {
+                currentbreakForce = breakForce;
+                ApplyBreaking();
+            }
+
+        }
+
+        //adding force to the two front wheels 
+        rearLeftWheelCollider.motorTorque = verticalInput * motorForce;
+        rearRightWheelCollider.motorTorque = verticalInput * motorForce;
+        //cheking if the breaking or not, if not break force equal 0
+        currentbreakForce = isBreaking ? breakForce : 0f;
+        ApplyBreaking();
+
+
     }
 
     private void ApplyBreaking()
@@ -109,11 +116,11 @@ public class drunkCC : MonoBehaviour
                 left = (rando.Next(2) == 0) ? true : false;
                 startApply = false;
             }
-            
+
             if (left)
                 angle -= drunkSteerOffSpeed;
             else
-                angle += drunkSteerOffSpeed; 
+                angle += drunkSteerOffSpeed;
         }
         else
         {
@@ -121,11 +128,11 @@ public class drunkCC : MonoBehaviour
         }
 
         //if no steering wheel moves towards neutral position
-        if ( angle < steerResetSpeed && angle > -steerResetSpeed )
+        if (angle < steerResetSpeed && angle > -steerResetSpeed)
         {
             angle = 0;
         }
-        else if (horizontalInput == 0 && angle > 0 )
+        else if (horizontalInput == 0 && angle > 0)
         {
             angle -= steerResetSpeed;
         }
@@ -135,7 +142,7 @@ public class drunkCC : MonoBehaviour
         }
 
         //make sure drunk turning cant exceed maximum
-        angle += horizontalInput/10;
+        angle += horizontalInput / 10;
         angle = Mathf.Clamp(angle, -1, 1);
 
 
@@ -145,10 +152,10 @@ public class drunkCC : MonoBehaviour
         frontRightWheelCollider.steerAngle = currentSteerAngle;
 
         //match steering wheel model to input
-          steeringWheel.eulerAngles = new Vector3(steeringWheel.eulerAngles.x, 
-          steeringWheel.eulerAngles.y,  -currentSteerAngle);
-        
-        
+        steeringWheel.eulerAngles = new Vector3(steeringWheel.eulerAngles.x,
+        steeringWheel.eulerAngles.y, -currentSteerAngle);
+
+
 
     }
 
