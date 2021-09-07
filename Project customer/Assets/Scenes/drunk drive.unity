@@ -17149,7 +17149,7 @@ MonoBehaviour:
   breakForce: 3000
   maxSteerAngle: 50
   steerResetSpeed: 0.03
-  drunkSteerOffSpeed: 0.05
+  drunkSteerOffSpeed: 0.04
   frontLeftWheelCollider: {fileID: 1969617273}
   frontRightWheelCollider: {fileID: 1969617272}
   rearLeftWheelCollider: {fileID: 1969617271}
