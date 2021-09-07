@@ -441,6 +441,7 @@ MonoBehaviour:
   rearLeftWheelTransform: {fileID: 8450383005014210185}
   rearRightWheelTransform: {fileID: 6898003371064339933}
   steeringWheel: {fileID: 2552076064923323404}
+  dashBoard: {fileID: 2899722575802504202}
 --- !u!1 &6480320517565305202
 GameObject:
   m_ObjectHideFlags: 0
