@@ -20,6 +20,7 @@ public class CarController : MonoBehaviour
     [SerializeField] private float motorForce;
     [SerializeField] private float breakForce;
     [SerializeField] private float maxSteerAngle;
+    [SerializeField] private float speedLimit;
 
     [SerializeField] private WheelCollider frontLeftWheelCollider;
     [SerializeField] private WheelCollider frontRightWheelCollider;
@@ -56,25 +57,40 @@ public class CarController : MonoBehaviour
 
     private void HandleMotor()
     {
+
         //adding force to the two front wheels 
         rearLeftWheelCollider.motorTorque = verticalInput * motorForce;
         rearRightWheelCollider.motorTorque = verticalInput * motorForce;
+        frontLeftWheelCollider.motorTorque = verticalInput * motorForce;
+        frontRightWheelCollider.motorTorque = verticalInput * motorForce;
+
         //cheking if the breaking or not, if not break force equal 0
         currentbreakForce = isBreaking ? breakForce : 0f;
         ApplyBreaking();
 
         //update dash board
         dashBoard.eulerAngles = new Vector3(dashBoard.eulerAngles.x,
-        dashBoard.eulerAngles.y, 80-(rb.velocity.magnitude*5));
+        dashBoard.eulerAngles.y, 80-(rb.velocity.magnitude*15));
     }
 
     private void ApplyBreaking()
     {
+        //limit speed
+        if(rb.velocity.magnitude > speedLimit)
+        {
+            Vector3 normalisedVelocity = rb.velocity.normalized;
+            Vector3 brakeVelocity = normalisedVelocity * 20000;
+
+            rb.AddForce(-brakeVelocity);
+        }
+        
         //break force
         frontRightWheelCollider.brakeTorque = currentbreakForce;
         frontLeftWheelCollider.brakeTorque = currentbreakForce;
         rearLeftWheelCollider.brakeTorque = currentbreakForce;
         rearRightWheelCollider.brakeTorque = currentbreakForce;
+
+        
     }
 
     private void HandleSteering()

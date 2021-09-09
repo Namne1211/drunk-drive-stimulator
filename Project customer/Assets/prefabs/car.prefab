@@ -396,7 +396,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6480320517473427353}
   serializedVersion: 2
-  m_Mass: 3500
+  m_Mass: 2000
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -429,9 +429,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29e665d5f0e15394f9e9aeb8ecb99f1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  motorForce: 1000
+  motorForce: 500
   breakForce: 3000
   maxSteerAngle: 50
+  speedLimit: 9
   frontLeftWheelCollider: {fileID: 6480320518485970179}
   frontRightWheelCollider: {fileID: 6480320517193259185}
   rearLeftWheelCollider: {fileID: 6480320517646528177}
