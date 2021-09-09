@@ -47,10 +47,7 @@ public class WayPointManager : EditorWindow
         }
         if(Selection.activeGameObject != null && Selection.activeGameObject.GetComponent<WayPoint>())
         {
-            if(GUILayout.Button("Add branch "))
-            {
-                AddBranch();
-            }
+           
             if (GUILayout.Button("create Waypoint before"))
             {
                 CreateWaypointBefore();
@@ -63,6 +60,10 @@ public class WayPointManager : EditorWindow
             {
                 RemoveWaypoint();
             }
+            if (GUILayout.Button("Add branch "))
+            {
+                AddBranch();
+            }
         }
 
     }
@@ -74,6 +75,8 @@ public class WayPointManager : EditorWindow
         waypointObject.transform.SetParent(waypointRoot, false);
 
         WayPoint waypoint = waypointObject.GetComponent<WayPoint>();
+
+        WayPoint From = Selection.activeGameObject.GetComponent<WayPoint>();
         if (waypointRoot.childCount > 1)
         {
             //st the waypoint prevwaypoint
