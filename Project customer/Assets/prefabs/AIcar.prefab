@@ -319,8 +319,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54180d973e497fc44bab5f5b3c20cd18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPlayer: {fileID: 0}
+  videoPlayer: {fileID: 3801912754758457267, guid: d4e35be576a4d75439c19c1fbb975c4d, type: 3}
   stopTime: 7
+  carCamera: {fileID: 0}
+  videoCamera: {fileID: 0}
 --- !u!1 &7148850926999915331
 GameObject:
   m_ObjectHideFlags: 0
