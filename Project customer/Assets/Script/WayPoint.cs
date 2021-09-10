@@ -14,6 +14,6 @@ public class WayPoint : MonoBehaviour
 
     public Vector3 GetPostion()
     {
-        return this.transform.position;
+        return transform.position;
     }
 }
