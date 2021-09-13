@@ -17,7 +17,7 @@ public class WaypointNav : MonoBehaviour
     void Start()
     {
         car.SetDestination(currentWaypoint.GetPostion());
-        Debug.Log(currentWaypoint.branches.Count);
+
     }
 
     // Update is called once per frame

@@ -13,6 +13,7 @@ public class CarController : MonoBehaviour
     private float currentSteerAngle;
     private float currentbreakForce;
     private bool isBreaking;
+    private bool phoneUp=false;
 
     private Rigidbody rb;
 
@@ -34,6 +35,7 @@ public class CarController : MonoBehaviour
 
     [SerializeField] private Transform steeringWheel;
     [SerializeField] private Transform dashBoard;
+    [SerializeField] private Transform phone;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -46,15 +48,33 @@ public class CarController : MonoBehaviour
         UpdateWheels();
         
     }
-
+    void Update()
+    {
+        handlePhone();
+    }
 
     private void GetInput()
     {
         horizontalInput = Input.GetAxis(HORIZONTAL);
         verticalInput = Input.GetAxis(VERTICAL);
         isBreaking = Input.GetKey(KeyCode.Space);
+        
     }
 
+
+    private void handlePhone()
+    {
+        if (Input.GetKeyUp(KeyCode.E) && phoneUp==false)
+        {
+            phone.transform.localPosition= Vector3.Lerp(phone.transform.localPosition, new Vector3(phone.transform.localPosition.x, 1.1f, phone.transform.localPosition.z), 1);
+            phoneUp = true;
+        }else 
+        if (Input.GetKeyUp(KeyCode.E) && phoneUp)
+        {
+            phone.transform.localPosition = Vector3.Lerp(phone.transform.localPosition, new Vector3(phone.transform.localPosition.x, 0, phone.transform.localPosition.z),1);
+            phoneUp = false;
+        }
+    }
     private void HandleMotor()
     {
 
