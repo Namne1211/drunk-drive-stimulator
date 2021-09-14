@@ -33,8 +33,7 @@ public class MenuManager : MonoBehaviour
         crashCounter.fireHydrant = 0;
         crashCounter.lampPost = 0;
         crashCounter.tree = 0;
-        crashCounter.bench = 0;
-        crashCounter.fence = 0;
+        crashCounter.building = 0;
         crashCounter.trafficCone = 0;
         crashCounter.trashCan = 0;      
     }

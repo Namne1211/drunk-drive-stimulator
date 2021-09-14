@@ -5,9 +5,21 @@ using UnityEngine.UI;
 
 public class displayCrashCount : MonoBehaviour
 {
-    public Text displayText;
+    public Text fireHydrantsText;
+    public Text trafficConeText;
+    public Text buildingText;
+    public Text trashText;
+    public Text treeText;
+    public Text lampText;
+
     void Start()
     {
-        displayText.text = "Fire hydrants hit: " + crashCounter.fireHydrant;
+        fireHydrantsText.text = "" + crashCounter.fireHydrant;
+        trafficConeText.text = "" + crashCounter.trafficCone;
+        buildingText.text = "" + crashCounter.building;
+        trashText.text = "" + crashCounter.trashCan;
+        treeText.text = "" + crashCounter.tree;
+        lampText.text = "" + crashCounter.lampPost;
+
     }
 }

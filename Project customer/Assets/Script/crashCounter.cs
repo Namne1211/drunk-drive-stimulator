@@ -7,8 +7,7 @@ public static class crashCounter
     public static int fireHydrant = 0;
     public static int lampPost = 0;
     public static int tree = 0;
-    public static int bench = 0;
-    public static int fence = 0;
+    public static int building = 0;
     public static int trafficCone = 0;
     public static int trashCan = 0;
 }

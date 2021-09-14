@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class PlayDieCutscene : MonoBehaviour
 {
-    public GameObject videoPlayer;
+    public VideoPlayer videoPlayer;
     [SerializeField] int stopTime;
     public Camera carCamera;
     public Camera videoCamera;
@@ -16,7 +17,7 @@ public class PlayDieCutscene : MonoBehaviour
 
     void Start()
     {
-        videoPlayer.SetActive(false);
+        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "deathbycarplaceholder.mp4");
     }
 
     private void Update()
@@ -35,7 +36,7 @@ public class PlayDieCutscene : MonoBehaviour
             player.enabled = false;
             videoCamera.gameObject.SetActive(true);
             carCamera.gameObject.SetActive(false);
-            videoPlayer.SetActive(true);
+            videoPlayer.Play();
             //stop video after provided time and load next scene
             Destroy(videoPlayer, stopTime);
             videoStartTime = Time.time;

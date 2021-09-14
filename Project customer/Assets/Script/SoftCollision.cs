@@ -35,13 +35,11 @@ public class SoftCollision : MonoBehaviour
                     break;
                 case (softCrashType)2 : crashCounter.tree++;
                     break;
-                case (softCrashType)3 : crashCounter.bench++;
+                case (softCrashType)3 : crashCounter.building++;
                     break;
-                case (softCrashType)4 : crashCounter.fence++;
+                case (softCrashType)4 : crashCounter.trafficCone++;
                     break;
-                case (softCrashType)5 : crashCounter.trafficCone++;
-                    break;
-                case (softCrashType)6 : crashCounter.trashCan++;
+                case (softCrashType)5 : crashCounter.trashCan++;
                     break;
             } 
             //softCrashSound.Play();
@@ -55,8 +53,7 @@ public enum softCrashType
     fireHydrant,
     lampPost,
     tree,
-    bench,
-    fence,
+    building,
     trafficCone,
     trashCan
 }

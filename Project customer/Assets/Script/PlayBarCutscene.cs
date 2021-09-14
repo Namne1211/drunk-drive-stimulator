@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class PlayBarCutscene : MonoBehaviour
 {
-    public GameObject videoPlayer;
+    public VideoPlayer videoPlayer;
     public int stopTime;
     float videoStartTime;
     bool collided;
@@ -15,7 +16,7 @@ public class PlayBarCutscene : MonoBehaviour
 
     void Start()
     {
-        videoPlayer.SetActive(false);
+        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "barCutScene.mp4");
     }
 
     private void Update()
@@ -35,7 +36,7 @@ public class PlayBarCutscene : MonoBehaviour
             videoCamera.gameObject.SetActive(true);
             carCamera.gameObject.SetActive(false);
             
-            videoPlayer.SetActive(true);
+            videoPlayer.Play();
             //stop video after provided time and load next scene
             Destroy(videoPlayer, stopTime);
             videoStartTime = Time.time;
