@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class MenuManager : MonoBehaviour
 {
-    public GameObject videoPlayer;
+    public VideoPlayer videoPlayer;
     public Canvas buttons;
     public int stopTime;
     bool clicked;
@@ -14,7 +15,7 @@ public class MenuManager : MonoBehaviour
     
     void Start()
     {
-        videoPlayer.SetActive(false);
+        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "popup.mp4");
     }
     public void Update()
     {
@@ -28,7 +29,7 @@ public class MenuManager : MonoBehaviour
         if(!clicked) videoStartTime = Time.time;
         clicked = true;
         buttons.enabled = false;
-        videoPlayer.SetActive(true);
+        videoPlayer.Play();
         crashCounter.fireHydrant = 0;
         crashCounter.lampPost = 0;
         crashCounter.tree = 0;
