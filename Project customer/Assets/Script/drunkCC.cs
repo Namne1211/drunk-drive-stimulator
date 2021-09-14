@@ -20,7 +20,7 @@ public class drunkCC : MonoBehaviour
     private float offSteerStart;
     private bool startApply = true;
     private bool left;
-
+    private bool phoneUp;
 
     [SerializeField] private float motorForce;
     [SerializeField] private float breakForce;
@@ -42,6 +42,7 @@ public class drunkCC : MonoBehaviour
 
     [SerializeField] private Transform steeringWheel;
     [SerializeField] private Transform dashBoard;
+    [SerializeField] private Transform phone;
     private Rigidbody rb;
     private void Awake()
     {
@@ -57,7 +58,24 @@ public class drunkCC : MonoBehaviour
         UpdateDashboard();
     }
 
-
+    void Update()
+    {
+        handlePhone();
+    }
+    private void handlePhone()
+    {
+        if (Input.GetKeyUp(KeyCode.E) && phoneUp == false)
+        {
+            phone.transform.localPosition = Vector3.Lerp(phone.transform.localPosition, new Vector3(phone.transform.localPosition.x, 1.1f, phone.transform.localPosition.z), 1);
+            phoneUp = true;
+        }
+        else
+        if (Input.GetKeyUp(KeyCode.E) && phoneUp)
+        {
+            phone.transform.localPosition = Vector3.Lerp(phone.transform.localPosition, new Vector3(phone.transform.localPosition.x, 0, phone.transform.localPosition.z), 1);
+            phoneUp = false;
+        }
+    }
     private void GetInput()
     {
         horizontalInput = Input.GetAxis(HORIZONTAL);
