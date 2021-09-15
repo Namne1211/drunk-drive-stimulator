@@ -21,6 +21,7 @@ public class MenuManager : MonoBehaviour
     {
         if (clicked && Time.time - videoStartTime >= stopTime)
         {
+            videoPlayer.Stop();
             SceneManager.LoadScene("driveToBar");
         }
     }

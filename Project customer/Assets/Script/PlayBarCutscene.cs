@@ -23,6 +23,7 @@ public class PlayBarCutscene : MonoBehaviour
     {
         if (collided && Time.time - videoStartTime >= stopTime)
         {
+            videoPlayer.Stop();
             SceneManager.LoadScene("driveHome");
         }
     }

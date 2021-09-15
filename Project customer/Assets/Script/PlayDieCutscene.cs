@@ -24,6 +24,7 @@ public class PlayDieCutscene : MonoBehaviour
     {
         if (collided && Time.time - videoStartTime >= stopTime)
         {
+            videoPlayer.Stop();
             SceneManager.LoadScene("MainMenu");
         }
     }
