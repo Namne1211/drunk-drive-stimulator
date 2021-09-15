@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4500247197365784}
-  - component: {fileID: 4147162508964627779}
   m_Layer: 0
   m_Name: Hydrant prefab
   m_TagString: Untagged
@@ -32,21 +31,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4147162508964627779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1060771982902304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce6701f9c0a9f2449b6f4d8351eb813e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  softCrashType: 0
-  softCrashSound: {fileID: 0}
-  damageResetTime: 3
 --- !u!1 &1083424251522222
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,6 +44,7 @@ GameObject:
   - component: {fileID: 23866776794893626}
   - component: {fileID: 65894371888556610}
   - component: {fileID: 2739742892541164608}
+  - component: {fileID: 2019249476313864771}
   m_Layer: 0
   m_Name: Hydrant
   m_TagString: Untagged
@@ -159,3 +144,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2019249476313864771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083424251522222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6701f9c0a9f2449b6f4d8351eb813e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  softCrashType: 0
+  damageResetTime: 3

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23038598729996872}
   - component: {fileID: 64408875093318114}
   - component: {fileID: 7686559043162023933}
+  - component: {fileID: 2518399774990095536}
   m_Layer: 0
   m_Name: street_lamp 1
   m_TagString: Untagged
@@ -116,6 +117,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2518399774990095536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186361931580308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6701f9c0a9f2449b6f4d8351eb813e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  softCrashType: 1
+  damageResetTime: 3
 --- !u!1 &1238479184688626
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,7 +233,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4759262865471542}
-  - component: {fileID: 6240993617215532991}
   - component: {fileID: 4072461036355801551}
   m_Layer: 0
   m_Name: street_lamp 1 prefab
@@ -242,21 +256,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
---- !u!114 &6240993617215532991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1674700864803382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce6701f9c0a9f2449b6f4d8351eb813e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  softCrashType: 1
-  softCrashSound: {fileID: 0}
-  damageResetTime: 3
 --- !u!54 &4072461036355801551
 Rigidbody:
   m_ObjectHideFlags: 0

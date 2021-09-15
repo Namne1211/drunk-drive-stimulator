@@ -36,7 +36,6 @@ public class soundManager : MonoBehaviour
                 break;
             case "lamp":
                 audioSrc.PlayOneShot(hitLamp);
-                Debug.LogError("call");
                 break;
             case "trafficcone":
                 audioSrc.PlayOneShot(hitTrafficCone);
