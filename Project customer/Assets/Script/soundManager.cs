@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class soundManager : MonoBehaviour
 {
-    public static AudioClip hitBuilding, hitFireHydrant, hitTrashcan, hitTree, hitLamp, hitTrafficCone, hitCar;
+    public static AudioClip hitBuilding, hitFireHydrant, hitTrashcan, hitTree, hitLamp, hitTrafficCone, hitCar, songStage1, songStage2;
     static AudioSource audioSrc;
     void Start()
     {
@@ -14,8 +14,7 @@ public class soundManager : MonoBehaviour
         hitTree = Resources.Load<AudioClip>("hitTree");
         hitLamp = Resources.Load<AudioClip>("hitLamp");
         hitTrafficCone = Resources.Load<AudioClip>("hitTrafficCone");
-        hitCar = Resources.Load<AudioClip>("hitCar");
-
+        
         audioSrc = GetComponent<AudioSource>();
     }
 

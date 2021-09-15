@@ -16,6 +16,10 @@ public class CarController : MonoBehaviour
     private bool phoneUp=false;
 
     private Rigidbody rb;
+    private BoxCollider bc;
+
+    [SerializeField] private AudioSource music;
+    [SerializeField] private GameObject phonePrompt;
 
 
     [SerializeField] private float motorForce;
@@ -39,6 +43,7 @@ public class CarController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        bc = GetComponent<BoxCollider>();
     }
     private void FixedUpdate()
     {
@@ -51,6 +56,16 @@ public class CarController : MonoBehaviour
     void Update()
     {
         handlePhone();
+
+        if (!bc.enabled)
+        {
+            music.Stop();
+            
+        }
+        if(!bc.enabled || Input.GetKeyDown(KeyCode.E))
+        {
+            phonePrompt.SetActive(false);
+        }
     }
     private void handlePhone()
     {

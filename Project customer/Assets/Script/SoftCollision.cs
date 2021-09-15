@@ -25,7 +25,6 @@ public class SoftCollision : MonoBehaviour
         
         if (!collided && collision.collider.gameObject.tag == "PlayerCar")
         {
-            
             switch (softCrashType)
             {
                 case softCrashType.fireHydrant : crashCounter.fireHydrant++; 

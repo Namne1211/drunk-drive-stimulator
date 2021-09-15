@@ -15,8 +15,17 @@ public class PlayDieCutscene : MonoBehaviour
 
     void Start()
     {
-        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "carcrash2.mp4");
+        if(SceneManager.GetActiveScene().name == "driveToBar")
+        {
+            videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "carcrash1.mp4");
+        }
+        else if (SceneManager.GetActiveScene().name == "driveHome")
+        {
+            videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "carcrash2.mp4");
+        }
+
         videoPlayer.Prepare();
+        
     }
 
     private void Update()
