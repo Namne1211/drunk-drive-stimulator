@@ -378,7 +378,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 948513913}
   buttons: {fileID: 1460043362}
-  stopTime: 5
 --- !u!114 &795674523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -670,7 +669,7 @@ VideoPlayer:
   - {fileID: 0}
   m_DirectAudioVolumes:
   - 1
-  m_Url: file://C:/Users/Nam Nguyen/Documents/GitHub/project-customer/Project customer/Assets/StreamingAssets/popup.mp4
+  m_Url: 
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1

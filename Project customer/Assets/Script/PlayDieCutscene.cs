@@ -7,24 +7,23 @@ using UnityEngine.Video;
 public class PlayDieCutscene : MonoBehaviour
 {
     public VideoPlayer videoPlayer;
-    [SerializeField] int stopTime;
     public Camera carCamera;
     public Camera videoCamera;
 
-    float videoStartTime;
     bool collided;
 
 
     void Start()
     {
-        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "deathbycarplaceholder.mp4");
+        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "carcrash2.mp4");
+        videoPlayer.Prepare();
     }
 
     private void Update()
     {
-        if (collided && Time.time - videoStartTime >= stopTime)
+        if (collided && !videoPlayer.isPlaying)
         {
-            videoPlayer.Stop();
+            //videoPlayer.Stop();
             SceneManager.LoadScene("MainMenu");
         }
     }
@@ -34,14 +33,10 @@ public class PlayDieCutscene : MonoBehaviour
         if (player.gameObject.tag == "PlayerCar")
         {
             //idsable player so no more interactions are possible and play cutscene video 
-            soundManager.PlaySound("car");
             player.enabled = false;
             videoCamera.gameObject.SetActive(true);
             carCamera.gameObject.SetActive(false);
             videoPlayer.Play();
-            //stop video after provided time and load next scene
-            Destroy(videoPlayer, stopTime);
-            videoStartTime = Time.time;
             collided = true;
         }
     }

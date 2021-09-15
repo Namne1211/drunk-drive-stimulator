@@ -7,7 +7,6 @@ using UnityEngine.Video;
 public class PlayBarCutscene : MonoBehaviour
 {
     public VideoPlayer videoPlayer;
-    public int stopTime;
     float videoStartTime;
     bool collided;
     public Camera carCamera;
@@ -17,13 +16,14 @@ public class PlayBarCutscene : MonoBehaviour
     void Start()
     {
         videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "barCutScene.mp4");
+        videoPlayer.Prepare();
     }
 
     private void Update()
     {
-        if (collided && Time.time - videoStartTime >= stopTime)
+        if (collided && !videoPlayer.isPlaying)
         {
-            videoPlayer.Stop();
+            //videoPlayer.Stop();
             SceneManager.LoadScene("driveHome");
         }
     }
@@ -36,11 +36,8 @@ public class PlayBarCutscene : MonoBehaviour
             player.enabled = false;
             videoCamera.gameObject.SetActive(true);
             carCamera.gameObject.SetActive(false);
-            
             videoPlayer.Play();
             //stop video after provided time and load next scene
-            Destroy(videoPlayer, stopTime);
-            videoStartTime = Time.time;
             collided = true;
         }
     }

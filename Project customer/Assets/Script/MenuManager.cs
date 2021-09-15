@@ -9,28 +9,30 @@ public class MenuManager : MonoBehaviour
 {
     public VideoPlayer videoPlayer;
     public Canvas buttons;
-    public int stopTime;
     bool clicked;
-    float videoStartTime;
     
     void Start()
     {
         videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "popup.mp4");
+        videoPlayer.Prepare();
+        
     }
     public void Update()
     {
-        if (clicked && Time.time - videoStartTime >= stopTime)
+        if (clicked && !videoPlayer.isPlaying)
         {
-            videoPlayer.Stop();
+            //videoPlayer.Stop();
             SceneManager.LoadScene("driveToBar");
         }
+
     }
     public void loadDriveToBar()
     {
-        if(!clicked) videoStartTime = Time.time;
-        clicked = true;
         buttons.enabled = false;
         videoPlayer.Play();
+        clicked = true;
+        
+     
         crashCounter.fireHydrant = 0;
         crashCounter.lampPost = 0;
         crashCounter.tree = 0;
