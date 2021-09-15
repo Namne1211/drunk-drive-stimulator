@@ -34,6 +34,7 @@ public class PlayDieCutscene : MonoBehaviour
         if (player.gameObject.tag == "PlayerCar")
         {
             //idsable player so no more interactions are possible and play cutscene video 
+            soundManager.PlaySound("car");
             player.enabled = false;
             videoCamera.gameObject.SetActive(true);
             carCamera.gameObject.SetActive(false);

@@ -7,7 +7,6 @@ public class SoftCollision : MonoBehaviour
 
 
     public softCrashType softCrashType = new softCrashType();
-    public AudioSource softCrashSound;
 
     [SerializeField] float damageResetTime;
 
@@ -29,20 +28,26 @@ public class SoftCollision : MonoBehaviour
             
             switch (softCrashType)
             {
-                case (softCrashType)0 : crashCounter.fireHydrant++;
+                case softCrashType.fireHydrant : crashCounter.fireHydrant++; 
+                    soundManager.PlaySound("firehydrant");
                     break;
-                case (softCrashType)1 : crashCounter.lampPost++;
+                case softCrashType.lampPost : crashCounter.lampPost++;
+                    soundManager.PlaySound("lamp");
                     break;
-                case (softCrashType)2 : crashCounter.tree++;
+                case softCrashType.tree : crashCounter.tree++;
+                    soundManager.PlaySound("tree");
                     break;
-                case (softCrashType)3 : crashCounter.building++;
+                case softCrashType.building : crashCounter.building++;
+                    soundManager.PlaySound("building");
                     break;
-                case (softCrashType)4 : crashCounter.trafficCone++;
+                case softCrashType.trafficCone : crashCounter.trafficCone++;
+                    soundManager.PlaySound("trafficcone");
                     break;
-                case (softCrashType)5 : crashCounter.trashCan++;
+                case softCrashType.trashCan : crashCounter.trashCan++;
+                    soundManager.PlaySound("trashcan");
                     break;
             } 
-            //softCrashSound.Play();
+            
             crashTime = Time.time;
             collided = true;
         }
