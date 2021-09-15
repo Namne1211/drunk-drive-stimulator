@@ -63,7 +63,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   softCrashType: 3
-  softCrashSound: {fileID: 0}
   damageResetTime: 5
 --- !u!1 &1433151737428836
 GameObject:

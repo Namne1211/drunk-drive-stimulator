@@ -170,5 +170,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   softCrashType: 3
-  softCrashSound: {fileID: 0}
   damageResetTime: 5
