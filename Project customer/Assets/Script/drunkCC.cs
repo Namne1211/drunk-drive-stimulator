@@ -22,6 +22,10 @@ public class drunkCC : MonoBehaviour
     private bool left;
     private bool phoneUp;
 
+    private BoxCollider bc;
+
+    [SerializeField] private AudioSource music;
+
     [SerializeField] private float motorForce;
     [SerializeField] private float breakForce;
     [SerializeField] private float maxSteerAngle;
@@ -47,6 +51,7 @@ public class drunkCC : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        bc = GetComponent<BoxCollider>();
     }
     private void FixedUpdate()
     {
@@ -61,6 +66,11 @@ public class drunkCC : MonoBehaviour
     void Update()
     {
         handlePhone();
+
+        if (!bc.enabled)
+        {
+            music.Stop();
+        }
     }
     private void handlePhone()
     {
