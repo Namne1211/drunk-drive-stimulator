@@ -695,7 +695,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &6596983998409569104
 Transform:
@@ -705,8 +705,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5882629543369175824}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.00000058114523}
-  m_LocalPosition: {x: 0, y: -4.68, z: 14.399994}
-  m_LocalScale: {x: 5, y: 0, z: 9.1975}
+  m_LocalPosition: {x: 0, y: -4.68, z: 0}
+  m_LocalScale: {x: 1, y: 0, z: 3}
   m_Children: []
   m_Father: {fileID: 3469616920677210903}
   m_RootOrder: 4
@@ -738,7 +738,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: afd363d9906f86c4e93c594a9c6a58f0, type: 2}
+  - {fileID: 2100000, guid: 9ab0a365ea66cf64cad51239e4edc45b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -749,7 +749,7 @@ MeshRenderer:
   m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
+  m_ImportantGI: 1
   m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
@@ -973,6 +973,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29e665d5f0e15394f9e9aeb8ecb99f1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  music: {fileID: 0}
+  phonePrompt: {fileID: 0}
   motorForce: 500
   breakForce: 3000
   maxSteerAngle: 80
